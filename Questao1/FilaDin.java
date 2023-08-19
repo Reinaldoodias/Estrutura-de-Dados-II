@@ -7,18 +7,26 @@ package Questao1;
 
 /**
  *
- * @author 20221SI0029
+ * @author Reinaldo Dias
  */
 
+/**
+ * Classe que representa um nó da Fila
+ * @author Reinaldo Dias
+ * @param <T> Tipo de dado armazenado
+ */
 class nodeFi<T>{
    private T dado;
    private nodeFi<T> proximo;
-
+   /**
+    * Construtor para inicializar os atributos
+    * @param dado O dado do elemento
+    */
     public nodeFi(T dado) {
         this.dado = dado;
         this.proximo = null;
     }
-
+    //Getters e Setters
     public T getDado() {
         return dado;
     }
@@ -36,18 +44,24 @@ class nodeFi<T>{
     }
     
 }
-
+/**
+ * Classe que representa uma Fila dinâmica 
+ * @author Reinaldo Dias
+ * @param <T> O tipo de dado a ser armazenado na fila
+ */
 class FilaDin<T>{
    private int tamanho;
    private nodeFi primeiro;//Primeiro a entrar
    private nodeFi ultimo;//Ultimo a entrar
-
+   /**
+    * Construtor que inicializa os atributos 
+    */
     public FilaDin() {
         this.tamanho = tamanho = 0;
         this.primeiro = primeiro;
         this.ultimo = ultimo;
     }
-    
+    //Gettters e Setters
     public nodeFi getPrimeiro() {
         return primeiro;
     }
@@ -68,6 +82,10 @@ class FilaDin<T>{
         return (tamanho==0);
     }
     
+    /**
+     * Método par inserir elemento na fila usando o método FIFO
+     * @param dado 
+     */
     public void Inserir_Elemento_Fila(T dado){
         nodeFi novo = new nodeFi(dado);
         if(Vazia_Fila()){
@@ -80,7 +98,10 @@ class FilaDin<T>{
         }
         tamanho++;
     }
-    
+    /**
+     * Retira um elemento da Fila usando o método FIFO
+     * @return 
+     */
     public T Sair_Elemento_Fila(){
         if(Vazia_Fila()){
             throw new RuntimeException ("A lista está vazia!");
@@ -93,7 +114,10 @@ class FilaDin<T>{
             return (T) aux.getDado();
         }
     }
-    
+    /**
+     * Remove um determinado elemento da Fila 
+     * @param dado O dado do elemento a ser removido
+     */
     public void Remover_Elemento_Fila(T dado){
         if(Vazia_Fila()){
             throw new RuntimeException ("A lista está vazia!");
@@ -116,7 +140,11 @@ class FilaDin<T>{
             } 
         }
     }
-    
+    /**
+     * Método que localiza e retorna um elemento
+     * @param dado O dado do elemento a ser pesquisado
+     * @return Retorna o valor do elemento
+     */
     public T Obter_Elemento(T dado){
        nodeFi aux = getPrimeiro();
        while(aux!=null && dado!=aux.getDado()){
@@ -147,7 +175,10 @@ class FilaDin<T>{
             return Localiza_Elemento_Anterior(dado, aux.getProximo());
         }
     }
-    
+    /**
+     * Método para obter o primeiro da Fila
+     * @return Retorna o Primeiro da Fila
+     */
     public T Obter_Primeiro(){
         if(!Vazia_Fila()){
             return (T) primeiro.getDado();
@@ -155,6 +186,10 @@ class FilaDin<T>{
             throw new RuntimeException("Fila Vazia");
         }
     }
+    /**
+     * Método para obter o primeiro da Fila 
+     * @return Retorna o primeiro da Fila
+     */
     public T Obter_Ultimo(){
         if(!Vazia_Fila()){
             return (T) ultimo.getDado();

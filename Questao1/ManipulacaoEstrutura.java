@@ -12,8 +12,15 @@ import javax.imageio.IIOException;
  *
  * @author Reinaldo Dias
  */
+/**
+ * Classe para operacoes das estruturas
+ * @author Reinaldo Dias
+ */
 public class ManipulacaoEstrutura {
-    
+    /**
+     * Método para operações com listas
+     * @param arquivo O objeto que foi criado para ler o arquivo exec.txt
+     */
     public void Listas(BufferedReader arquivo){
         ListaDE<String> lista = new ListaDE<String>();
         try{
@@ -47,6 +54,8 @@ public class ManipulacaoEstrutura {
             e.printStackTrace();
         }
     }
+    
+    //O processo serve para todas as outras estruturas
     
     public void Filas(BufferedReader arquivo){
         FilaDin<String> fila = new FilaDin<String>();
@@ -119,28 +128,28 @@ public class ManipulacaoEstrutura {
         }
     }
     
-    /*public void Arvores(BufferedReader arquivo){
+    public void Arvores(BufferedReader arquivo){
         ArvoreBin<String> arvore = new ArvoreBin<String>();
         try{
             String line; 
                while((line = arquivo.readLine())!= null){
                 String[] funcao = line.split(";");
                 String comando = funcao[0];
+                System.out.println(Arrays.toString(funcao));
+
                 switch(comando){
                     case "INSERIR":
                         String dadoin = funcao[1];
-                        arvore.Inserir_Elemento_Final(dadoin);
+                        arvore.Inserir_Elemento(dadoin);
                         break;
                     case "REMOVER":
-                        String dadodel = funcao [1];
-                        lista.remover_elemento(dadodel);
                         break;
                     case "IMPRIMIR":
-                        lista.Tela();
+                        arvore.Tela();
                         break;
                     case "BUSCAR":
-                        String dadopes = funcao[1];
-                        lista.Obter_Elemento(dadopes);
+                        String dadobu = funcao[1];
+                        System.out.println("(" +arvore.Obter_elemento(dadobu)+")");
                         break;
                         
                 }
@@ -150,7 +159,7 @@ public class ManipulacaoEstrutura {
         }catch(IOException e){
             e.printStackTrace();
         }
-    }*/
+    }
     
     public String Titulo(BufferedReader leitor){
         try{

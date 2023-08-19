@@ -8,16 +8,27 @@ package Questao1;
  * @author Reinaldo Dias
  */
 
-class nodeLi<T> { //Classe que representa um nó com seus atributos
+/**
+ * Classe que representa um nó da lista
+ * @author Reinaldo Dias
+ * @param <T> O tipo de dado armazenado
+ */
+class nodeLi<T> { 
     private T dado;
     private nodeLi antes;
     private nodeLi proximo;
     
-    public nodeLi(T dado){ //contrutor usado para inicializar os atributos
+    /**
+     * Construtor usado para inicializar os atributos
+     * @param dado O dado a ser armazenado nó
+     */
+    public nodeLi(T dado){
         this.dado = dado;
         this.antes = null;
         this. proximo = null;      
     }
+    
+    //Getters e Setters
 
     public T getDado() {
         return dado;
@@ -45,18 +56,26 @@ class nodeLi<T> { //Classe que representa um nó com seus atributos
     
 }
 
-class ListaDE<T> {//Faz o papel da struct em C
+/**
+ * Classe que representa a lista duplamente encadeada
+ * @author Reinaldo Dias
+ * @param <T> Tipo de dado armazenado no nó
+ */
+class ListaDE<T> {
    private nodeLi primeiro;
    private nodeLi ultimo;
    private int tamanho;
 
-   public ListaDE(){ //Construtor da classe
+   /**
+    * Construtor da classe par ainicalizar os atributos
+    */
+   public ListaDE(){ 
        this.primeiro=null;
        this.ultimo = null;
        this.tamanho = 0;
             
    }
-
+   //Getters e Setters
     public nodeLi getPrimeiro() {
         return primeiro;
     }
@@ -73,15 +92,20 @@ class ListaDE<T> {//Faz o papel da struct em C
         this.ultimo = ultimo;
     }
    
-   
-   public int Tamanho(){//Retorna o tamanho da lista
+   public int Tamanho(){
        return tamanho;
    }
-   
-   public boolean Vazia(){//retorna se a lista estiver vazia
+   /**
+    * Método verifica se a lista está vazia
+    * @return Retorna true se a lista estiver vazia
+    */
+   public boolean Vazia(){
        return (tamanho==0);
    }
-   
+   /**
+    * Método para inserir um novo nó no final da lista
+    * @param dado O dado a ser inserido no elemento
+    */
    public void Inserir_Elemento_Inicio(T dado){//Insere um elemento na lista
        nodeLi novo = new nodeLi(dado);
       if(Vazia()){
@@ -95,7 +119,10 @@ class ListaDE<T> {//Faz o papel da struct em C
       }
        tamanho++;
    }
-   
+   /**
+    * Método para ainserir um novo nó no início da lista
+    * @param dado O dado a ser inserido no elemento
+    */
    public void Inserir_Elemento_Final(T dado){//Insere um elemento na lista
        nodeLi novo = new nodeLi(dado);
       if(Vazia()){
@@ -110,7 +137,10 @@ class ListaDE<T> {//Faz o papel da struct em C
       }
        tamanho++;
    }
-   
+   /**
+    * Método para remover um determinado elemento da lista
+    * @param dado O dado do elemento a ser removido
+    */
    public void remover_elemento(T dado){
        if(Vazia()){
             throw new RuntimeException("A lista está vazia!");//Não há elementos
@@ -135,6 +165,7 @@ class ListaDE<T> {//Faz o papel da struct em C
        }
    }
    
+   
    public nodeLi Localiza_elemento(nodeLi aux, T dado){
        if(aux!=null && aux.getDado().equals(dado)){
            return aux;
@@ -145,7 +176,11 @@ class ListaDE<T> {//Faz o papel da struct em C
        }
        
    }
-   
+   /**
+    * Método que localiza um elemento na lista e retorna o seu valor
+    * @param dado O dado do elemento  a ser localizado
+    * @return Retorna o valor do elemento achado
+    */
   public T Obter_Elemento(T dado){
        nodeLi aux = getPrimeiro();
        while(aux!=null && dado!=aux.getDado()){

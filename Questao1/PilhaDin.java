@@ -8,10 +8,20 @@ package Questao1;
  *
  * @author Reinaldo Dias
  */
+
+/**
+ * 
+ * @author Reinaldo Dias
+ * @param <T> o tipo de dado armazanado no nó(é genérico)
+ */
 class nodePi<T>{
     private T dado;
     private nodePi proximo;
-    
+
+    /**
+     * 
+     * @param dado O dado a ser armazanado no nó
+     */
    public nodePi (T dado){
        this.dado = dado;
        this.proximo = null;
@@ -35,12 +45,19 @@ class nodePi<T>{
    
 }
 
+/**
+ * Classe que define uma pilha dinâmica genérica
+ * @author Reinaldo Dias
+ * @param <T> tipo de dado armazenado na pilha
+ */
 class PilhaDin<T>{
     private int tamanho;
     private nodePi primeiro;//primeiro da pilha
     private nodePi ultimo;//ultimo da pilha
-
-    public PilhaDin() {// Inicializar os atributos
+/**
+ * Construtor que inicializa os atributos da pilha
+ */
+    public PilhaDin() {
         this.tamanho = 0;
         this.primeiro = null;
         this.ultimo = null;
@@ -64,12 +81,18 @@ class PilhaDin<T>{
     }
     
     
-    
-    public boolean Vazia_Pilha(){//retorna true se a Pilha estiver Vazia
+    /**
+     * Método que retorna true caso a pilha estiver Vazia
+     * @return 
+     */
+    public boolean Vazia_Pilha(){
         return (tamanho==0);
     }
         
-    
+    /**
+     * Método que adiciona um elemento na pilha
+     * @param dado O dado a ser inserido na pilha
+     */
     public void Entrar_Elemento_Pilha(T dado){//Adiciona um elemento na Pilha
         nodePi novo = new nodePi(dado);
         if(Vazia_Pilha()){
@@ -82,6 +105,10 @@ class PilhaDin<T>{
         }
         tamanho++;
     } 
+    /**
+     * Funçao para retirar o elemento da pilha usando o método LIFO
+     * @return 
+     */
     public T Sair_Elemento_Pilha(){
         if(!Vazia_Pilha()){
             nodePi saindo = ultimo;
@@ -92,7 +119,10 @@ class PilhaDin<T>{
         } 
         return null;
     }
-    
+    /**
+     * Função para remover um determinado elemento da pilha
+     * @param dado O dado a ser removido da pilha
+     */
     public void Remover_Elemento_Pilha(T dado){//Remove um elemento da pilha apenas com o dado fornacido
         if(!Vazia_Pilha()){
             nodePi delete, anterior;
@@ -110,6 +140,11 @@ class PilhaDin<T>{
         }
             
     }
+    /**
+     * Função para localizar um elemento na pilha e retornar seu valor
+     * @param dado O dado a ser localizado
+     * @return retorna o valor do dado
+     */
     public T Obter_Elemento(T dado){
        nodePi aux = getPrimeiro();
        while(aux!=null && dado!=aux.getDado()){
@@ -140,7 +175,10 @@ class PilhaDin<T>{
             return Localiza_Elemento_Anterior(dado, aux.getProximo());
         }
     }
-    
+    /**
+     * Método para saber o ultimo elemento da pilha
+     * @return Retorna o valor do elemento
+     */
     public T Obter_Ultimo(){
        if(!Vazia_Pilha()){
             return (T) primeiro.getDado();
@@ -148,7 +186,10 @@ class PilhaDin<T>{
             throw new RuntimeException("Fila Vazia");
         }
     }
-    
+    /**
+     * Método para saber o elemento topo
+     * @return retorna o valor do primeiro elemento
+     */
     public T Obter_Topo(){
         if(!Vazia_Pilha()){
             return (T) ultimo.getDado();

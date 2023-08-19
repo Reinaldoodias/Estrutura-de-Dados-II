@@ -15,26 +15,29 @@ import java.io.IOException;
 public class run {
 
     public static void main(String[] args) {
-        ManipulacaoEstrutura reader = new ManipulacaoEstrutura();
+       ManipulacaoEstrutura manipulation = new ManipulacaoEstrutura();
         try{
-            BufferedReader arquivo= new BufferedReader(new FileReader("C:\\Users\\Reinaldo Dias\\Documents\\NetBeansProjects\\reinaldodias_ATV01 _ED II\\src\\main\\java\\Questao1\\exec.txt.txt"));
-            String titulo = reader.Titulo(arquivo);
+            BufferedReader arquivo = new BufferedReader(new FileReader("src\\main\\java\\Questao1\\exec.txt"));
+            String titulo = manipulation.Titulo(arquivo);
             switch(titulo){
                 case "LISTA":
-                    reader.Listas(arquivo);
+                    manipulation.Listas(arquivo);
                     break;
                 case "FILA":
-                    reader.Filas(arquivo);
+                    manipulation.Filas(arquivo);
                     break;
                 case "PILHA":
-                    reader.Pilhas(arquivo);
+                    manipulation.Pilhas(arquivo);
+                    break;
+                case "ARVORE":
+                    manipulation.Arvores(arquivo);
                     break;
             }
        
         }catch(IOException e){
             e.printStackTrace();
         }
-       
+
        
 
         
