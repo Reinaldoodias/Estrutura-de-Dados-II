@@ -1,0 +1,33 @@
+Estruturas disponíveis:
+a) Lista Encadeada Dupla
+b) Pilha Dinâmica
+c) Fila Dinâmica
+d) Árvore Binária
+
+Funcionalidades suportadas:
+- INSERIR: Insere um elemento na estrutura.
+- REMOVER: Remove um elemento da estrutura.
+- IMPRIMIR: Imprime os elementos da estrutura.
+- BUSCAR: Busca um elemento na estrutura e retorna seu toString, se presente.
+
+Exemplo de uso:
+Estrutura: x
+Ação: INSERIR; 10
+Ação: INSERIR; 20
+Ação: REMOVER; 10
+Ação: BUSCAR; 20
+Ação: IMPRIMIR
+
+NOTA: Para mudar de estrutura mude apenas a primeira linha do "exec.txt" para o nome da estrutura que deseja:
+- lista
+- fila
+- pilha
+- arvore
+
+OBS 1.: Sempre deixar um espaço entre o ";" e o elemento inserido, a fim de facilitar a leitura
+        como de Strings.
+
+OBS 2.: Os métodos de um determinada estrutura funciona de acordo com o conceito da própria. 
+        Exemplo: O método Tela() da estrutura Pilha vai printar obedecendo o padrão LIFO.
+
+OBS 3.: Em caso de "nullPonterExeception" certifique-se que tá REMOVENDO ou BUSCANDO um elemento existente.
