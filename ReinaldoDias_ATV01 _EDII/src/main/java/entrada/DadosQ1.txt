@@ -1,0 +1,33 @@
+Desenvolver em Java, classes que representem as estruturas de dados:
+
+a) Lista Encadeada Dupla
+b) Pilha Dinâmica
+c) Fila Dinâmica
+d) Árvore Binária
+
+ATENÇÃO: em toda e qualquer atividade futura que for
+requisitado o uso de uma destas estruturas, obrigatoriamente
+deve ser utilizada a que foi apresentada nesta atividade.
+
+Todas as classes devem implementar no mínimo as funcionalidades inserir, remover, buscar e imprimir. A função
+INSERIR deve ser invocada automaticamente após a criação da estrutura, carregando as informações do arquivo
+de entrada.
+
+Além dos arquivos com os dados de entrada, devem estar disponíveis no projeto os arquivos textos a
+seguir:
+• config.txt: explica os parâmetros e funcionamento de cada estrutura, tem o objetivo de facilitar a
+execução.
+• exec.txt: contêm os comandos para execução e testes das estruturas, assim ele será lido pela aplicação e
+determinará qual estrutura e quais ações devem ser feitas. Os comandos possíveis serão: INSERIR,
+REMOVER, IMPRIMIR e BUSCAR (se objeto estiver presente, retorna o objeto (toString). O comando
+inserir neste arquivo deve inserir um único objeto, isto porque, quando uma estrutura for instanciada,
+automaticamente ela deve invocar o método inserir que lerá do arquivo texto específico os dados de
+entrada.
+
+Exemplo exec.txt
+lista OU pilha OU fila OU arvore
+REMOVER; bola
+IMPRIMIR
+INSERIR; casa
+IMPRIMIR;
+BUSCAR; colher
