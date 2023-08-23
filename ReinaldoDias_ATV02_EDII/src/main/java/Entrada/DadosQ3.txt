@@ -1,0 +1,3 @@
+3) Dada uma árvore binária, encontre sua profundidade mínima. A profundidade mínima é o número total de
+nós ao longo do caminho mais curto desde o nó raiz até o nó folha mais próximo. Por exemplo, a profundidade
+mínima da árvore binária a seguir é 3. O caminho mais curto é 1 —> 3 —> 6.

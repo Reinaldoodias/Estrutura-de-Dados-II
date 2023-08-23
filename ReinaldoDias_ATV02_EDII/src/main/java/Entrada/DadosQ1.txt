@@ -1,0 +1,4 @@
+1) Dada uma lista binária ordenada, encontre a quantidade de 1s presentes.
+Entrada: 0>0>0>0>0>1>1>1
+Saída: Quantidade de 1s = 3
+
