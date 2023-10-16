@@ -1,0 +1,14 @@
+IMPRIMIR;
+INSERIR;1000;reinaldo Dias;reinaldojdm13@gmail.com;sao luis
+IMPRIMIR;
+BUSCAR;2004
+INSERIR;7628;caio vini;caicai@exemplo.com;sao luis
+IMPRIMIR;
+REMOVER;7628
+IMPRIMIR;
+BUSCAR;2234
+INSERIR;8730;Rafael;rafael@gmail.com;Fortaleza
+IMPRIMIR;
+INSERIR;9253;Daniel;daniel@gmail.com;São Luís
+IMPRIMIR;
+BUSCAR;1000

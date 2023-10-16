@@ -1,0 +1,4 @@
+Implemente um tipo de dado abstrato que represente uma Tabela Hash. NÃO PODem ser utilizados recursos da
+linguagem para simplificar o desenvolvimento, ou seja, todas as funcionalidades devem ser desenvolvidas pelo
+aluno. Funções obrigatórias: Inserir, Remover, Buscar e Imprimir (deve exibir todos os dados da estrutura, nos
+buckets vazios exibir Null).

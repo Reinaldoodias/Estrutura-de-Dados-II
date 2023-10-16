@@ -1,0 +1,45 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Reinaldo Dias/Documents/NetBeansProjects/ReinaldoDias_ATV04_EDIV/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Reinaldo Dias/Documents/NetBeansProjects/ReinaldoDias_ATV04_EDIV/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Reinaldo_DiasATV04 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Reinaldo_DiasATV04 1.0-SNAPSHOT API'
+questao1
+questao2
+questao3
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\src\main\java = 1697391407276
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\allclasses-index.html = 1697393096915
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\allpackages-index.html = 1697393096918
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\element-list = 1697393096787
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\help-doc.html = 1697393096962
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\index-all.html = 1697393096952
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\index.html = 1697393096891
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\jquery-ui.overrides.css = 1697393096988
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\member-search-index.js = 1697393096925
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\module-search-index.js = 1697393096920
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\overview-summary.html = 1697393096955
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\overview-tree.html = 1697393096885
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\package-search-index.js = 1697393096922
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\script.js = 1697393096969
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\search.js = 1697393096974
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\stylesheet.css = 1697393096966
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\tag-search-index.js = 1697393096927
+C:\Users\Reinaldo Dias\Documents\NetBeansProjects\ReinaldoDias_ATV04_EDIV\target\site\apidocs\type-search-index.js = 1697393096924

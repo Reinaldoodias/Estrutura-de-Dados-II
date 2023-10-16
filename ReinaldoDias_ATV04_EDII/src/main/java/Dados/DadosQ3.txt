@@ -1,0 +1,4 @@
+Considerando o objeto cliente (id, nome, email, cidade), carregue todos os dados presentes em um arquivo
+texto de entrada. De maneira similar a Atividade 01, utilizar o arquivo exec.txt com os comandos: INSERIR,
+REMOVER, IMPRIMIR e BUSCAR (se objeto estiver presente, retorna o objeto (toString). * Considere a
+situação de ter que aumentar a estrutura da Tabela Hash (REHASHING) para evitar elevado número de colisões.
