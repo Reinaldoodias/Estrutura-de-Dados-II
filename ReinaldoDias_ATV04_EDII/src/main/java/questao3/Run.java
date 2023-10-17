@@ -20,13 +20,12 @@ public class Run {
     public static void main(String[] args){
         try{
             BufferedReader leitor = new BufferedReader(new FileReader("src\\main\\java\\questao3\\Entrada.txt"));
-            TabelaHash<Integer, Cliente> tabela = new TabelaHash<>(Calculos.tamanhofile());
+            TabelaHash<String, Cliente> tabela = new TabelaHash<>(Calculos.tamanhofile());
             String line;
             while((line = leitor.readLine()) != null){
                 String[] cliente = line.split(";");
-                int chave = Integer.parseInt(cliente[0]);
-                Cliente temp = new Cliente(chave, cliente[1], cliente[2],cliente[3]);
-                tabela.inserir(chave, temp);
+                Cliente temp = new Cliente(cliente[0], cliente[1], cliente[2],cliente[3]);
+                tabela.inserir(cliente[0], temp);
             }
             operacao(tabela);
             Calculos.tamanhofile();
@@ -41,7 +40,7 @@ public class Run {
  * @param <Integer> o Tipo de dado a ser utilizado como 'chave' na tabela é inteiro.
  * @param <Cliente> o tipo de dado a ser utilizado na tabela com 'valor' é Cliente. 
  */ 
-    private static void operacao(TabelaHash<Integer, Cliente> tabela) {
+    private static void operacao(TabelaHash<String, Cliente> tabela) {
         try{
             BufferedReader leitor = new BufferedReader(new FileReader("src\\main\\java\\questao3\\Exec.txt"));
             String line;
@@ -52,14 +51,12 @@ public class Run {
                 System.out.println(Arrays.toString(linha));
                 switch(funcao){
                     case "INSERIR":
-                        chave = Integer.parseInt(linha[1].trim());
-                        Cliente temp = new Cliente(chave, linha[2], linha[3],linha[4]);
-                        tabela.inserir(chave, temp);
+                        Cliente temp = new Cliente(linha[1], linha[2], linha[3],linha[4]);
+                        tabela.inserir(linha[1].trim(), temp);
                         break;
                     case "REMOVER":
-                        chave = Integer.parseInt(linha[1].trim());
-                        if(tabela.obter(chave) != null){
-                            tabela.remover(chave);
+                        if(tabela.obter(linha[1].trim()) != null){
+                            tabela.remover(linha[1].trim());
                         }else{
                             System.out.println("O cliente não está presente na tabela.");    
                         }    
@@ -68,11 +65,10 @@ public class Run {
                         tabela.imprimirTabela();
                         break;
                     case "BUSCAR":
-                        chave = Integer.parseInt(linha[1].trim());
-                        if(tabela.obter(chave)==null){
+                        if(tabela.obter(linha[1].trim())==null){
                             System.out.println("Cliente não está presente na tabela");         
                         }else{
-                            System.out.println("\t|BUCKET(" +tabela.calcularIndice(chave)+ "):" + "\n\t|-> Dados =" + tabela.obter(chave).toString());
+                            System.out.println("\t|BUCKET(" +tabela.calcularIndice(linha[1].trim())+ "):" + "\n\t|-> Dados =" + tabela.obter(linha[1].trim()).toString());
                         }
                         break; 
                 }

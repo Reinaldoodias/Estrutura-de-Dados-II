@@ -9,6 +9,6 @@ IMPRIMIR;
 BUSCAR;2234
 INSERIR;8730;Rafael;rafael@gmail.com;Fortaleza
 IMPRIMIR;
-INSERIR;9253;Daniel;daniel@gmail.com;São Luís
+INSERIR;34abf7;Daniel;daniel@gmail.com;São Luís
 IMPRIMIR;
-BUSCAR;1000
+BUSCAR;34abf7

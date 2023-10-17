@@ -9,23 +9,23 @@ package questao3;
  * @author Reinaldo Dias
  */
 public class Cliente {
-    private int idcliente;
+    private String idcliente;
     private String nome;
     private String email;
     private String cidade;
 /*Construtot para inicilaizar o Objeto*/
-    public Cliente(int idcliente, String nome, String email, String cidade) {
+    public Cliente(String idcliente, String nome, String email, String cidade) {
         this.idcliente = idcliente;
         this.nome = nome;
         this.email = email;
         this.cidade = cidade;
     }
 /*Getters e Setters*/
-    public int getIdcliente() {
+    public String getIdcliente() {
         return idcliente;
     }
 
-    public void setIdcliente(int idcliente) {
+    public void setIdcliente(String idcliente) {
         this.idcliente = idcliente;
     }
 

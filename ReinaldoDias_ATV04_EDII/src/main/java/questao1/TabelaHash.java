@@ -9,6 +9,7 @@ package questao1;
  */
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import questao3.Calculos;
 /**
  * Essa classe reprenta a implementação de uma tabela hash.
@@ -18,13 +19,13 @@ import questao3.Calculos;
  */
 public class TabelaHash<K, V> {
     private int tamanho;
-    private LinkedList<Entrada<K, V>>[] tabela;
+    private ListaDE<Entrada<K, V>>[] tabela;
 
     public TabelaHash(int tamanho) {
         this.tamanho = tamanho;
-        tabela = new LinkedList[tamanho];
+        tabela = (ListaDE<Entrada<K, V>>[]) new List[tamanho];
         for (int i = 0; i < tamanho; i++) {
-            tabela[i] = new LinkedList<>();
+            tabela[i] = new ListaDE<>();
         }
     }
 /**
@@ -45,8 +46,8 @@ public class TabelaHash<K, V> {
  */
     public void inserir_Q2(K chave, V valor) {
         int indice = calcularIndice(chave);
-        LinkedList<Entrada<K, V>> bucket = tabela[indice];
-        bucket.add(new Entrada<K, V>(chave, valor));
+        ListaDE<Entrada<K, V>> bucket = tabela[indice];
+        bucket.Inserir_Elemento_Final(new Entrada<K, V>(chave, valor));
     }
 /**
  * Método da Tabela Hash que é responsável por inserir um para chave-valor na tabela em uma posição calculada.
@@ -55,14 +56,15 @@ public class TabelaHash<K, V> {
  */
     public void inserir(K chave, V valor) {
         int indice = calcularIndice(chave);
-        LinkedList<Entrada<K, V>> bucket = tabela[indice];
-        for (Entrada<K, V> entrada : bucket) {
+        ListaDE<Entrada<K, V>> bucket = tabela[indice];
+        for (int i=0;i<bucket.Tamanho();i++) {
+            Entrada<K,V> entrada = bucket.Obter_peloindice(i);
             if (entrada.chave.equals(chave)) {
                 entrada.valor = valor;
                 return;
             }
         }
-        bucket.add(new Entrada<K, V>(chave, valor));
+        bucket.Inserir_Elemento_Final(new Entrada<K, V>(chave, valor));
         reHash();
     }
 /**
@@ -72,8 +74,9 @@ public class TabelaHash<K, V> {
  */
     public V obter(K chave) {
         int indice = calcularIndice(chave);
-        LinkedList<Entrada<K, V>> bucket = tabela[indice];
-        for (Entrada<K, V> entrada : bucket) {
+        ListaDE<Entrada<K, V>> bucket = tabela[indice];
+        for (int i=0;i<this.tamanho;i++) {
+            Entrada<K,V> entrada = bucket.Obter_peloindice(i);
             if (entrada.chave.equals(chave)) {
                 return entrada.valor;
             }
@@ -86,10 +89,11 @@ public class TabelaHash<K, V> {
  */
     public void remover(K chave) {
         int indice = calcularIndice(chave);
-        LinkedList<Entrada<K, V>> bucket = tabela[indice];
-        for (Entrada<K, V> entrada : bucket) {
+        ListaDE<Entrada<K, V>> bucket = tabela[indice];
+        for (int i=0;i<this.tamanho;i++) {
+            Entrada<K,V> entrada = bucket.Obter_peloindice(i);
             if (entrada.chave.equals(chave)) {
-                bucket.remove(entrada);
+                bucket.remover_elemento(entrada);
                 return;
             }
         }
@@ -100,7 +104,12 @@ public class TabelaHash<K, V> {
  * @return A Chave multiplicada por 3
  */    
     private int hashCode(K chave){
-        return (int) chave * 3 ;
+        String key = (String) chave;
+        int inteiro=1;
+        for(int i=0;i<key.length();i++){
+            inteiro *= key.charAt(i);
+        }
+        return inteiro;
     }
 /**
  * Método para calcular o índice de um objeto na tabela Hash utilizando o hashcode, de forma que o indice é constante para uma determinada chave.
@@ -116,10 +125,11 @@ public class TabelaHash<K, V> {
  */    
     public void imprimirTabela() {
         for (int i = 0; i < tamanho; i++) {
-            LinkedList<Entrada<K, V>> bucket = tabela[i];
-            if (!bucket.isEmpty()) {
+            ListaDE<Entrada<K, V>> bucket = tabela[i];
+            if (bucket!=null) {
                 System.out.println("\t|BUCKET (" + i + "):");
-                for (Entrada<K, V> entrada : bucket) {
+                for (int j=0;j<bucket.Tamanho();j++) {
+                    Entrada<K,V> entrada = bucket.Obter_peloindice(j);
                     System.out.println("\t|-> Chave: " + entrada.chave + "| Valor: " + entrada.valor);
                 }
             }else{
@@ -135,12 +145,12 @@ public class TabelaHash<K, V> {
         ArrayList<V> duplicados = new ArrayList<>();
         int i,j,r;
         for(i=0; i<tamanho;i++){
-            LinkedList<Entrada<K, V>> bucket = tabela[i];
-            if(!bucket.isEmpty() && bucket.size()>1){
-                for(j=0;j<bucket.size();j++){
-                    for(r=j+1;r<bucket.size();r++){
-                        if(bucket.get(j).valor.equals(bucket.get(r).valor) && !duplicados.contains(bucket.get(j).valor)){
-                            duplicados.add((V) bucket.get(j).valor);
+            ListaDE <Entrada<K, V>> bucket = tabela[i];
+            if(bucket!=null && bucket.Tamanho()>1){
+                for(j=0;j<bucket.Tamanho();j++){
+                    for(r=j+1;r<bucket.Tamanho();r++){
+                        if(bucket.Obter_peloindice(j).valor.equals(bucket.Obter_peloindice(i).valor) && !duplicados.contains(bucket.Obter_peloindice(j).valor)){
+                            duplicados.add((V) bucket.Obter_peloindice(j).valor);
                             break;
                         }
                     }
@@ -157,7 +167,7 @@ public class TabelaHash<K, V> {
  */   
     public int contaElementos(int indice){
         if(indice<this.tamanho){
-            return tabela[indice].size() + contaElementos(indice+1);
+            return tabela[indice].Tamanho() + contaElementos(indice+1);
         }else{
             return 0;
         }
@@ -169,17 +179,14 @@ public class TabelaHash<K, V> {
         if(contaElementos(0)*100/this.tamanho > 75){
             int newSize = Calculos.tamanhoTabela(this.tamanho);
             TabelaHash<K,V> novaTabela = new TabelaHash<>(newSize);
-            for(LinkedList<Entrada<K,V>> bucket : this.tabela){
+            for(int i=0;i<tamanho;i++){
                 for(Entrada<K,V> entrada : bucket){
                     novaTabela.inserir(entrada.chave, entrada.valor);
                 }
             }
             this.tabela = novaTabela.tabela;
             this.tamanho = novaTabela.tamanho;
-        }
-        
-        
-    }
-        
+        } 
+    }   
 }
 
