@@ -1,0 +1,105 @@
+A árvore Splay é uma estrutura de dados de árvore binária que possui uma propriedade especial chamada Splaying. Consiste em uma técnica de organização que traz um nó acessado para a raiz reformulando toda árvore. O benefício dessa operação é otimizar as operações de busca, deixando o nó acessível com o menor custo computacional.
+exemplo:
+	BUSCAR: 45
+	76		 45
+       /  \	=	/  \
+      45   83	 	    76
+			     \
+			      83
+
+Dessa forma o ‘45’ nó acessado está agora na raiz facilitando novos acessos à ele.
+
+Principais características:
+Árvore binária de busca 
+Isso implica em dizer que cada nó da árvore possui no máximo 2 filhos e no mínimo 0 filhos, em que os filhos com valores menores estão à esquerda e os maiores estão à direita.
+Operações de acesso
+Quando realiza-se alguma operação de acesso seja ela inserção, busca ou remoção a função de splay é chamada. 
+Inserção: Quando um novo nó é inserido na árvore ele sempre é splayado para raiz. O procedimento não é complexo, uma vez que após o nó ser inserido atendendo as diretrizes de um árvore binária de busca ele é splayado.
+Busca: Após que o elemento buscado na árvore é encontrado então ele é splayado para raiz para facilitar as buscas vindouras.
+Remoção: A literatura diverge em relação a isso, porém o mais comum na remoção é localizar o elemento no qual se deseja eliminar da árvore e splaya-lo, pois isso também conta como um acesso, logo depois de acontecer esses procedimentos o nó (raiz) é excluído através de um processo simples de exclusão.
+Função Splay
+	O artifício Splaying é baseado em 3 métodos:
+Zig
+Este é o método simples e consiste quando o elemento a ser buscado é filho direto da raiz da árvore, portanto não possui um ‘Avô’. Por isso é realizado apenas uma rotação simples à direita.
+Zag
+Este é o método simples e consiste quando o elemento a ser buscado é filho direto da raiz da árvore, portanto não possui um ‘Avô’. Por isso é realizada apenas uma rotação simples à esquerda.
+
+	Porém quando dependendo da situação que se encontra o nó então o processo pode ser mais complicado tendo que  combinar rotações podendo ser elas:
+ZIG-ZIG: É realizada quando o nó a ser acessado possui um avô e o nó é filho à esquerda do seu pai da mesma forma que o pai é filho esquerdo do avô do nó.
+ZAG-ZAG: É realizada quando o nó a ser acessado possui um avô e o nó é filho direito de seu pai da mesma forma que o pai é filho direito do avô do nó.
+ZIG-ZAG: É realizada quando o nó a ser acessado possui um avô e o nó é filho esquerdo de seu pai, diferente do pai é filho direito do avô do nó.
+ZAG-ZIG: É realizada quando o nó a ser acessado possui um avô e o nó é filho esquerdo de seu pai, diferente do pai é filho direito do avô do nó.
+
+	
+
+CLASSE: ArvoreSplay
+
+setRaiz():
+Este método simplesmente atualiza a raiz da árvore com a raiz fornecida como argumento.
+
+inserir():
+O método inserir é responsável por adicionar um novo nó à árvore.
+Se a árvore estiver vazia (sem raiz), o novo nó se torna a raiz da árvore.
+Caso contrário, a função chama a função privada Inserir_no para adicionar o novo nó na posição correta na árvore. A função Inserir_no é chamada recursivamente para encontrar a posição adequada para o novo nó, seguindo as regras de uma árvore binária.
+buscar():
+
+O método buscar procura um elemento na árvore. Se o elemento for encontrado, a árvore é reorganizada para que o nó contendo o elemento seja movido para a raiz. Isso é feito para melhorar o desempenho de pesquisas futuras desse elemento.
+O método chama a função splay para realizar as rotações necessárias e, em seguida, retorna o elemento encontrado.
+imprimir():
+
+O método imprimir chama a função preOrdem para imprimir os elementos da árvore em pré-ordem, o que significa que ele imprime primeiro a raiz, depois o nó esquerdo e, por fim, o nó direito. Isso resulta em uma impressão hierárquica da árvore.
+
+remover():
+O método remover chama a função privada removerRecursivo para remover um nó da árvore. A árvore é reorganizada conforme necessário para manter as propriedades da árvore binária. Se o nó a ser removido for a raiz, a nova raiz será atualizada após a remoção.
+
+Vazia_Arvore():
+Esta função verifica se a árvore está vazia, retornando true se não houver elementos na árvore (ou seja, se o tamanho for 0 e a raiz for nula).
+
+zig():
+A função zig realiza uma rotação simples à direita em um nó. A rotação ajusta os ponteiros dos nós para reorganizar a árvore.
+
+zag():
+A função zag realiza uma rotação simples à esquerda em um nó. Assim como zig, esta função reorganiza os ponteiros para manter a árvore balanceada.
+
+atualizafilhos():
+Esta função é usada para ajustar os ponteiros e atualizar os filhos de um nó após uma rotação. Ela verifica se o nó é a raiz e, em seguida, atualiza os ponteiros do pai para apontar para o novo filho.
+
+splay():
+A função splay é uma parte crucial da operação de busca. Ela move o nó contendo o elemento buscado para a raiz da árvore, aplicando rotações conforme necessário. A lógica envolve rotações simples (zig, zag) e rotações duplas (zig-zig, zag-zag, zig-zag e zag-zig), dependendo da posição do nó.
+
+Localiza():
+A função Localiza é usada para localizar um nó na árvore. Ela compara a chave do nó atual com a chave desejada, movendo-se para a esquerda ou direita conforme necessário, até encontrar o nó desejado ou chegar a um nó nulo.
+
+Inserir_no():
+Esta função é usada na operação de inserção para encontrar a posição correta para adicionar um novo nó na árvore. Ela segue as regras de uma árvore binária e chama-se recursivamente para percorrer a árvore até encontrar o local apropriado.
+
+removerRecursivo():
+A função removerRecursivo é usada para remover um nó da árvore de forma recursiva. Ela lida com diferentes casos, incluindo a remoção de nós com zero, um ou dois filhos. A árvore é reorganizada conforme necessário para manter suas propriedades.
+
+encontrarSucessor():
+Esta função é usada para encontrar o sucessor de um nó na árvore. O sucessor é o nó mais à esquerda na subárvore
+
+CLASSE: Node
+
+Construtor Node:
+O construtor da classe Node cria um novo nó com uma chave e uma referência para o pai (anterior).
+A chave do nó é definida com o valor passado como argumento.
+Os ponteiros esquerdo (esq), direito (dir) e anterior (ant) são inicializados como nulos. Esses ponteiros são usados para construir a estrutura da árvore binária splay e rastrear o pai do nó.
+
+Métodos getters e setters:
+Os métodos getters e setters permitem acessar e modificar os campos do nó, como a chave, os ponteiros esquerdo, direito e anterior.
+
+compareTo():
+O método compareTo é usado para comparar dois nós com base em suas chaves. Ele implementa a interface Comparable e é usado para determinar a ordem dos nós na árvore.
+
+retornaAvo():
+O método retornaAvo é usado para encontrar o avô de um nó na árvore. Ele verifica se o nó tem um pai (ant) e, se tiver, verifica se o pai tem um pai (avô). Em caso afirmativo, retorna o avô. Isso é útil para determinar o tipo de rotação a ser aplicada na função splay.
+
+filhoadireita():
+O método filhoadireita verifica se o nó atual é um filho à direita de seu pai. Isso é usado para determinar o tipo de rotação a ser aplicada na função splay.
+
+filhoaEsquerda():
+O método filhoaEsquerda verifica se o nó atual é um filho à esquerda de seu pai. Isso também é usado para determinar o tipo de rotação a ser aplicada na função splay.
+Essa classe Node é fundamental para a construção da árvore binária splay, pois armazena informações sobre nós e seus relacionamentos na estrutura da árvore.
+
+
